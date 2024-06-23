@@ -56,7 +56,7 @@ public class Console {
 
     public void setCustomer( Console console )
     {
-        this.customer = new Customer(client , console);
+        this.customer = new Customer(console);
     }
 
     Scanner input = new Scanner(System.in);
@@ -80,12 +80,12 @@ public class Console {
         
             switch (option) {
                 case 1:
-                    customer.viewProducts(false);
+                    customer.viewProducts(false , client);
                     System.out.println("Want to download this product excel file ? (y/n)");
                     String ch = input.next();
                     if(ch.toLowerCase().equals("y"))
                     {
-                        customer.downloadDoc();
+                        customer.downloadDoc(client);
                     }
                     break;
 
@@ -94,7 +94,7 @@ public class Console {
                     break;
 
                 case 3:
-                    customer.viewProducts(false);
+                    customer.viewProducts(false , client);
                     System.out.println("Enter the Product ID : ");
                     input.nextLine();
                     prod_ID = input.nextLine();
@@ -102,7 +102,7 @@ public class Console {
                     break;
 
                 case 4:
-                    customer.viewProducts(true);
+                    customer.viewProducts(true , client);
                     System.out.println("Enter the Product ID : ");
                     input.nextLine();
                     prod_ID = input.nextLine();
@@ -111,7 +111,7 @@ public class Console {
 
                 case 5:
                     System.out.println("Enter in remove stocks");
-                    customer.viewProducts(false);
+                    customer.viewProducts(false ,client);
                     System.out.println("Enter the Product ID : ");
                     input.nextLine();
                     prod_ID = input.nextLine();
@@ -119,7 +119,7 @@ public class Console {
                     break;
 
                 case 6:
-                    customer.viewProducts(false);
+                    customer.viewProducts(false , client);
                     System.out.println("Enter the Product ID : ");
                     input.nextLine();
                     prod_ID = input.nextLine();
@@ -127,11 +127,11 @@ public class Console {
                     break;
 
                 case 7:
-                    customer.viewProducts(false);
+                    customer.viewProducts(false , client);
                     System.out.println("Enter the Product ID : ");
                     input.nextLine();
                     prod_ID = input.nextLine();
-                    customer.purchaseProduct(prod_ID, mongoDBClient, input);
+                    customer.purchaseProduct(prod_ID, mongoDBClient, input , client);
                     break;
 
                 case 8:
